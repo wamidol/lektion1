@@ -8,7 +8,7 @@ int bigA(char* arr);
 int main() {
 
 
-/** =========== Uppgifter 1-4 ===========* **/
+/** =========== Uppgifter 1-4 =========== **/
 
     /**
     char str[] = "abcdefaaabce";
@@ -45,17 +45,14 @@ int main() {
     return 0;
 **/
 
-/**=========== Uppgifter 5-8 ===========**/
+/** =========== Uppgifter 5-8 =========== **/
 
     char arr[100] = {0};
     int i = 0;
     int c;
     int counter = 0;
 
-
     printer(stdin, arr, i, c);
-
-
 
     while(arr[counter] != '\0') {
         if (arr[counter] == 'a') {
@@ -63,7 +60,6 @@ int main() {
         }
         counter++;
     }
-
 
     printf("%s", arr);
     printf("Length: %d\n", counter-1);
@@ -80,7 +76,7 @@ int main() {
     } while(i < 100 && c != EOF && c != '\n');
 
     printf("%s", arr);
-    printf("(%c)", arr[j]);
+    printf("(%c)\n", arr[j]);
 
 }
 
