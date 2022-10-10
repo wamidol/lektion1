@@ -1,9 +1,14 @@
 #include <stdio.h>
+#include <string.h>
 
 
-int printer(FILE *stream, char *arr, int i, int c);
+const char* printer(FILE *stream, char *arr, int i, int c);
 
-int bigA(char* arr);
+int counter();
+
+void bigA(char *arr);
+
+const char* stringAdd(char *arr1, char *arr2);
 
 int main() {
 
@@ -50,37 +55,44 @@ int main() {
     char arr[100] = {0};
     int i = 0;
     int c;
-    int counter = 0;
 
-    printer(stdin, arr, i, c);
 
-    while(arr[counter] != '\0') {
-        if (arr[counter] == 'a') {
-            arr[counter] = 'A';
-        }
-        counter++;
-    }
+    int counter1 = 0;
+    int counter2 = 0;
 
-    printf("%s", arr);
-    printf("Length: %d\n", counter-1);
+    
+    //string 1
+    char *string1 = printer(stdin, arr, i, c);
 
-    int j = 0;
+    counter1 = counter(string1);
 
-    do {
-        c = fgetc(stdin);
+    printf("string 1 b biga %s",string1);
 
-        arr[j] = c;
+    bigA(string1);
 
-        j++;
+     printf("string 1 a biga %s",string1);
+    
+    //string 2
+    char *string2 = printer(stdin, arr, i, c);
 
-    } while(i < 100 && c != EOF && c != '\n');
+printf("string 1 a string2 %s",string1);
 
-    printf("%s", arr);
-    printf("(%c)\n", arr[j]);
+    counter2 = counter(string2);
+
+printf("string 1 a count%s",string1);
+    bigA(string2);
+printf("string 1 a biga %s",string1);
+
+    printf("string 1%s",string1);
+     printf("string 2%s",string2);
+
+    //string concativate
+    stringAdd(string1, string2);
+
 
 }
 
-int printer(FILE *stream, char *arr, int i, int c) {
+const char* printer(FILE *stream, char *arr, int i, int c) {
 
     do {
 
@@ -90,11 +102,68 @@ int printer(FILE *stream, char *arr, int i, int c) {
 
         i++;
 
-    } while(i < 100 && c != EOF && c != '\n');
+    } while(i < 100 && c != '\0' && c != '\n');
 
     printf("%s", arr);
 
-    return *arr;
+    return arr;
 }
 
-int bigA(char *arr);
+int counter(char *arr) {
+
+    int counter = 0;
+       while(arr[counter] != '\0') {
+
+        counter++;
+    }
+
+    printf("Length: %d\n", counter-1);
+    return counter;
+
+
+}
+
+void bigA(char *arr) {
+
+    int counter = 0;
+
+    while(arr[counter] != '\0') {
+
+        if (arr[counter] == 'a') {
+            arr[counter] = 'A';
+        }
+        counter++;
+    }
+
+    printf("%s", arr);
+
+}
+
+
+const char* stringAdd(char *arr1, char *arr2) {
+
+    char str[] = "abcdefaaabce";
+    char str1[] = "abcdeabce";
+    char str2[800];
+    int j = 0, i = 0;
+
+
+    while(str[i] != '\0') {
+        str2[j]=str[i];
+        i++;
+        j++;
+    }
+
+    i = 0;
+    while(str1[i] != '\0') {
+        str2[j]=str1[i];
+        i++;
+        j++;
+    }
+    str2[j]= '\0';
+
+
+    printf("%s\n", str2);
+
+
+}
