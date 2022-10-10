@@ -128,7 +128,6 @@ void bigA(char *arr) {
 
 }
 
-
 const char* stringAdd(char *arr1, char *arr2) {
 
     char str[] = "abcdefaaabce";
@@ -136,8 +135,12 @@ const char* stringAdd(char *arr1, char *arr2) {
     char str2[800];
     int j = 0, i = 0;
 
-    while(str[i] != '\0') {
-        str2[j]=str[i];
+    while(arr1[i] != '\0') {
+        
+        if(arr1[i] == '\n') {
+            arr1[i] = '\0';
+        }
+        str2[j]=arr1[i];
         i++;
         j++;
     }
