@@ -68,6 +68,7 @@ int main() {
     //String 2
     char *string2 = printer(stdin, arr, i, c);
 
+// TODO: String 1 and String 2 are the same???
     printf("string 1 a string2 %s",string1);   //Here string1 == string2 why?
 
     counter2 = counter(string2);
@@ -135,6 +136,8 @@ const char* stringAdd(char *arr1, char *arr2) {
     char str2[800];
     int j = 0, i = 0;
 
+
+// TODO: remove newline add '\0' here instead
     while(arr1[i] != '\0') {
         
         if(arr1[i] == '\n') {
